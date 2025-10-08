@@ -7,10 +7,10 @@ import torch
 ROOT = Path(__file__).resolve().parent.parent
 
 # Set concrete defaults that match your current workspace
-VIDEO_PATH = str(ROOT / "NYU_PANYNJ" / "Arrival" /  "Asheque Rahman - Terminal 4 _ Arrivals _ Wednesday May 7 2025 _ 2pm to 3pm.avi")
-MASK_DIR = str(ROOT / "masks" / "masks_Arrival")
-REF_IMAGE_PATH = str( ROOT / "masks" / "ref_imgs" / "Asheque Rahman - Terminal 4 _ Arrivals _ Wednesday May 7 2025 _ 2pm to 3pm_ref.jpg")
-MODEL_PATH = str(ROOT / "YOLO Models" / "yolo11l-general.pt") # "best.pt" or "yolo11s-visdrone.pt" or "yolo11l-general.pt"
+VIDEO_PATH = str(ROOT / "NYU_PANYNJ" / "Arrival" /  "Asheque Rahman - Export_ T4 _ Arrivals _ 1.28.2025 _ 3 pm - 4 pm.avi")
+MASK_DIR = str(ROOT / "masks" / "masks_Asheque Rahman - Export_ T4 _ Arrivals _ 1.28.2025 _ 3 pm - 4 pm")
+REF_IMAGE_PATH = str( ROOT / "masks" / "ref_imgs" / "Asheque Rahman - Export_ T4 _ Arrivals _ 1.28.2025 _ 3 pm - 4 pm_ref.jpg")
+MODEL_PATH = str(ROOT / "Yolo_Models" / "yolo11l-general.pt") # "best.pt" or "yolo11s-visdrone.pt" or "yolo11l-general.pt"
 
 # ------------- Visualization -------------
 TEXT_AREA_HEIGHT = 240
@@ -26,7 +26,7 @@ RECHECK_BATCH_ENABLED = True # 1-second “majority similar” check
 DWELL_TIME_THRESHOLD_SECS = 90 # seconds of “little movement”
 DISTANCE_THRESHOLD_PX = 40 # px movement to reset dwell timer
 
-def make_output_dir(video_name: str, prefix="yolo11s_output_"):
+def make_output_dir(video_name: str, prefix="yolo11l_output_"):
     # Clean video name: keep only letters, numbers, dot, underscore, dash
     safe_name = re.sub(r'[^A-Za-z0-9._-]+', "_", video_name)[:60]
 
