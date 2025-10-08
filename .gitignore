@@ -22,6 +22,7 @@ ENV/
 
 # Output folders
 yolo11s_output_*/
+yolo11l_output_*/
 *_output_*/
 
 # Model files (optional - uncomment if models are large)
