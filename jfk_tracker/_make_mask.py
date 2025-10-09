@@ -3,7 +3,7 @@ import numpy as np
 import os
 
 # Configuration
-video_name = "Asheque Rahman - Export_ T4 _ Arrivals _ 1.28.2025 _ 3 pm - 4 pm"
+video_name = "Asheque Rahman - Terminal 4 _ Arrivals _ Wednesday May 28 2025 _ 2pm to 3pm"
 num_lanes = 9  # Number of lanes to create masks for
 base_dir = r"c:\Users\leo\Desktop\jfk"
 image_path = os.path.join(base_dir, "masks", "ref_imgs", f"{video_name}_colored_ref.jpg")

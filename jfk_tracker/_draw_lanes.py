@@ -162,7 +162,7 @@ class LaneDrawer:
     
     def save_output(self):
         """Save the colored reference image and lane data"""
-        base_dir = Path(self.image_path)
+        base_dir = Path(self.image_path).parent.parent  # Go up from ref_imgs to masks
         output_dir = base_dir / f"masks_{self.video_name}"
         output_dir.mkdir(parents=True, exist_ok=True)
         
@@ -216,20 +216,24 @@ class LaneDrawer:
         self.update_display()
         
         while True:
-            key = cv2.waitKey(1) & 0xFF
+            key = cv2.waitKey(100) & 0xFF  # Increased from 1 to 100ms for better key detection
             
             if key == ord('u'):
                 self.undo_last_point()
+                print(">> Key 'u' pressed - Undo")
             
             elif key == ord('c'):
                 self.clear_current_lane()
+                print(">> Key 'c' pressed - Clear")
             
             elif key == ord('r'):
+                print(">> Key 'r' pressed - Reset")
                 confirm = input("\nReset all lanes? (y/n): ")
                 if confirm.lower() == 'y':
                     self.reset_all()
             
             elif key == ord('s'):
+                print(">> Key 's' pressed - Save")
                 if len(self.lanes) == 0:
                     print("No lanes to save! Draw at least one lane first.")
                 else:
@@ -237,15 +241,20 @@ class LaneDrawer:
                     print("\nPress any key to continue or 'q' to quit...")
             
             elif key == ord('q') or key == 27:  # 'q' or ESC
+                print(">> Key 'q'/'ESC' pressed - Quit")
                 print("\nQuitting without saving...")
                 break
+            
+            # Print key code for debugging (optional)
+            elif key != 255:  # 255 means no key pressed
+                print(f">> Key pressed: {key} (char: {chr(key) if 32 <= key <= 126 else 'N/A'})")
         
         cv2.destroyAllWindows()
 
 
 def main():
     # Configuration
-    video_name = "Asheque Rahman - Export_ T4 _ Arrivals _ 1.28.2025 _ 3 pm - 4 pm"
+    video_name = "Asheque Rahman - Terminal 4 _ Arrivals _ Wednesday May 28 2025 _ 2pm to 3pm"
     base_dir = Path(r"c:\Users\leo\Desktop\jfk")
     image_path = base_dir / "masks" / "ref_imgs" / f"{video_name}_ref.jpg"
     

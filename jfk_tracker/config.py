@@ -7,14 +7,14 @@ import torch
 ROOT = Path(__file__).resolve().parent.parent
 
 # Set concrete defaults that match your current workspace
-VIDEO_PATH = str(ROOT / "NYU_PANYNJ" / "Arrival" /  "Asheque Rahman - Export_ T4 _ Arrivals _ 1.28.2025 _ 3 pm - 4 pm.avi")
-MASK_DIR = str(ROOT / "masks" / "masks_Asheque Rahman - Export_ T4 _ Arrivals _ 1.28.2025 _ 3 pm - 4 pm")
-REF_IMAGE_PATH = str( ROOT / "masks" / "ref_imgs" / "Asheque Rahman - Export_ T4 _ Arrivals _ 1.28.2025 _ 3 pm - 4 pm_ref.jpg")
+VIDEO_PATH = str(ROOT / "NYU_PANYNJ" / "Arrival" / "Asheque Rahman - Terminal 4 _ Arrivals _ Wednesday May 28 2025 _ 2pm to 3pm.avi")
+MASK_DIR = str(ROOT / "masks" / "masks_Asheque Rahman - Terminal 4 _ Arrivals _ Wednesday May 28 2025 _ 2pm to 3pm")
+REF_IMAGE_PATH = str(ROOT / "masks" / "ref_imgs" / "Asheque Rahman - Terminal 4 _ Arrivals _ Wednesday May 28 2025 _ 2pm to 3pm_ref.jpg")
 MODEL_PATH = str(ROOT / "Yolo_Models" / "yolo11l-general.pt") # "best.pt" or "yolo11s-visdrone.pt" or "yolo11l-general.pt"
 
 # ------------- Visualization -------------
 TEXT_AREA_HEIGHT = 240
-SHOW_WINDOW = True # set True to cv2.imshow while running
+SHOW_WINDOW = True # set True to cv2.imshow while running 
 
 # ------------- Homography / Tilt -------------
 TILT_ANGLE_THRESHOLD_DEG = 10 # consider 'tilt' if |angle| > 10
